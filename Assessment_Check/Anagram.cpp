@@ -1,13 +1,18 @@
 #include <assert.h>
 #include <string>
-
+#include <algorithm>
 /** 
 * Function returns true if word_1 and word_2 are anagrams to each other. Otherwise false.
 * Case sensitivity doesn't matter.
 */
 bool check_if_anagram(const std::string &word_1, const std::string &word_2)
 {
-	return false;
+	std::string word1=word_1, word2=word_2;
+	word1.erase(remove_if(word1.begin(), word1.end(), isspace), word1.end());
+	word2.erase(remove_if(word2.begin(), word2.end(), isspace), word2.end());
+	std::sort(word1.begin(), word1.end());
+	std::sort(word2.begin(), word2.end());
+	return word1==word2 ? true:false;
 }
 
 void test_cases()
@@ -21,7 +26,7 @@ void test_cases()
 	answer = check_if_anagram("funeral", "real fun");
 	assert(answer == true);
 
-	answer = check_if_anagram("Tieto", "Tietonator",);
+	answer = check_if_anagram("Tieto", "Tietonator");
 	assert(answer == false);
 
 	answer = check_if_anagram("Football", "Basketball");
