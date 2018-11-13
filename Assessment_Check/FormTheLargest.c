@@ -10,24 +10,24 @@
 int form_the_largest_number(int number)
 {
 	int n = number, arrayPos = -1, digit, result = 0;
-	int length = (int)floor(log10((float)number)) + 1;	
-	int *tab=malloc(sizeof(tab)*length);
+	int length = (int)floor(log10((float)number)) + 1;	//ilosc cyfr w podanej liczbie
+	int *tab=malloc(sizeof(tab)*length);				//dynamiczna alokacja pamieci pod tablice
 
-	while(number != 0){
+	while(number != 0){									//zapisanie inta w tablicy po cyfrze
 		digit = number % 10;
         number = number / 10;
 		tab[++arrayPos]=digit;
 	}
 
-	for(int i=9; i>=0; i--){
+	for(int i=9; i>=0; i--){							//wyszukiwanie kolejnych cyfr (9,8,..)
 		for(int j=0; j<=arrayPos; j++){
 			if(tab[j]==i){
-				result+=i;
-				result *= 10;
+				result+=i;								//dodanie cyfry
+				result *= 10;							//pomnozenie wyniku przez 10 zeby "przesunac" dodana cyfre w lewo
 			}
 		}
 	}
-	return result/10;
+	return result/10;									//wynik w tym miejscu jest pomnozony przez 10 o jeden raz za duzo
 }
 
 void test_cases()
