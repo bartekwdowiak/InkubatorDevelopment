@@ -1,4 +1,7 @@
 #include <assert.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
 
 /**
 * Given a number, return the maximum number that could be formed with digits of the number given.
@@ -6,7 +9,25 @@
 */
 int form_the_largest_number(int number)
 {
-	return 0;
+	int n = number, arrayPos = -1, digit, result = 0;
+	int length = (int)floor(log10((float)number)) + 1;	
+	int *tab=malloc(sizeof(tab)*length);
+
+	while(number != 0){
+		digit = number % 10;
+        number = number / 10;
+		tab[++arrayPos]=digit;
+	}
+
+	for(int i=9; i>=0; i--){
+		for(int j=0; j<=arrayPos; j++){
+			if(tab[j]==i){
+				result+=i;
+				result *= 10;
+			}
+		}
+	}
+	return result/10;
 }
 
 void test_cases()
@@ -27,4 +48,5 @@ void test_cases()
 int main()
 {
 	test_cases();
+
 }
