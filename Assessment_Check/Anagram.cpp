@@ -7,12 +7,12 @@
 */
 bool check_if_anagram(const std::string &word_1, const std::string &word_2)
 {
-	std::string word1=word_1, word2=word_2;
-	word1.erase(remove_if(word1.begin(), word1.end(), isspace), word1.end());
+	std::string word1=word_1, word2=word_2;										//tworzenie kopii stringow, bo "const"
+	word1.erase(remove_if(word1.begin(), word1.end(), isspace), word1.end());	//usuniecie spacji ze stringow
 	word2.erase(remove_if(word2.begin(), word2.end(), isspace), word2.end());
-	std::sort(word1.begin(), word1.end());
+	std::sort(word1.begin(), word1.end());										//sortowanie strigow
 	std::sort(word2.begin(), word2.end());
-	return word1==word2 ? true:false;
+	return word1==word2 ? true:false;											//porownanie i return
 }
 
 void test_cases()
