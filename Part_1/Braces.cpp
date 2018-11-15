@@ -1,19 +1,38 @@
 #include <assert.h>
 #include <iostream>
 #include <string>
+#include <vector>
 
 bool bracesOrder(const std::string &input)
 {
-    std::cout<<input.length()<<std::endl;
-    for ( int i = 0; i < input.length(); i++ ){
-        
-    }
-    return true;
+	int len = input.length();
+	std::vector<char> bracesOpenings;
+
+
+	for (int i = 0; i < len; i++) {
+
+		if (input[i] == '[' || input[i] == '(' || input[i] == '{') {
+			bracesOpenings.push_back(input[i]);
+		}
+
+		else if (bracesOpenings.back() == '[' && input[i] == ']' 
+			||	 bracesOpenings.back() == '(' && input[i] == ')' 
+			||	 bracesOpenings.back() == '{' && input[i] == '}') 
+		{
+			bracesOpenings.pop_back();
+		}
+
+		else {
+			return false;
+		}
+
+	}
+	return true;
 }
 
 void test_cases()
 {
-    bool answer = bracesOrder("(){}[]");
+	bool answer = bracesOrder("(){}[]");
 	assert(answer == true);
 
 	answer = bracesOrder("([{}])[]");
@@ -22,10 +41,10 @@ void test_cases()
 	answer = bracesOrder("(]");
 	assert(answer == false);
 
-    answer = bracesOrder("[(])");
+	answer = bracesOrder("[(])");
 	assert(answer == false);
 
-    answer = bracesOrder("[({})](]");
+	answer = bracesOrder("[({})](]");
 	assert(answer == false);
 }
 
