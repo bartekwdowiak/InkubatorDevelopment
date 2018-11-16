@@ -12,8 +12,17 @@
 std::array<int, 5> Lotto_drawing()
 {
     std::array<int, 5> result;
+    int temp;
 	srand (time(NULL));
-    for(int i=0; i<5; i++) result[i]=rand()%49+1;
+    for(int i=0; i<5; i++) 
+    {
+        temp=rand()%49+1;
+        while(std::find(std:begin(result),std::end(result),temp))
+        {
+            temp=rand()%49+1;
+        }
+        result[i]=temp;
+    }
     return result;
 }
 
