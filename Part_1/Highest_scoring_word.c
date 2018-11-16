@@ -4,7 +4,7 @@
 #include <stdlib.h>
 
 
-char* highestScoringWord(char sentence[])
+char* highestScoringWord(char *sentence)
 {
 
     int highestScore = -1, currentScore = 0;
