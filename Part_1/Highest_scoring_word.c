@@ -36,27 +36,27 @@ void test_cases()
 {
 	char input1[] = "aaaaa d";
 	char* answer = highestScoringWord(input1);
-	assert(!strcmp(answer,"aaaaa"));
+	assert(strcmp(answer,"aaaaa")==0);
 
 	char input2[] = "aaaaa e";
 	answer = highestScoringWord(input2);
-	assert(!strcmp(answer,"aaaaa"));
+	assert(strcmp(answer,"aaaaa")==0);
 
 	char input3[] = "aaaaa f";
 	answer = highestScoringWord(input3);
-	assert(!strcmp(answer,"f"));
+	assert(strcmp(answer,"f")==0);
 
 	char input4[] = "dupa zupa kupa";
 	answer = highestScoringWord(input4);
-	assert(!strcmp(answer,"zupa"));
+	assert(strcmp(answer,"zupa")==0);
 
 	char input5[] = "tieto teito itteo";
 	answer = highestScoringWord(input5);
-	assert(!strcmp(answer,"tieto"));
+	assert(strcmp(answer,"tieto")==0);
 
 	char input6[] = "zozole ida droga";
 	answer = highestScoringWord(input6);
-	assert(!strcmp(answer,"zozole"));
+	assert(strcmp(answer,"zozole")==0);
 }
 
 int main(int argc, char *argv[])
