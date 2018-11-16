@@ -11,7 +11,8 @@ bool bracesOrder(const std::string &input)
 
 	for (int i = 0; i < len; i++) {
 
-		if (input[i] == '[' || input[i] == '(' || input[i] == '{') {
+		if (input[i] == '[' || input[i] == '(' || input[i] == '{') 
+		{
 			bracesOpenings.push_back(input[i]);
 		}
 
@@ -22,7 +23,8 @@ bool bracesOrder(const std::string &input)
 			bracesOpenings.pop_back();
 		}
 
-		else {
+		else 
+		{
 			return false;
 		}
 
