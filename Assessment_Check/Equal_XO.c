@@ -9,10 +9,10 @@ bool XO(const char *word, const int length)
 {
 	int countX = 0, countO = 0;
 	for(int i=0; i<length; i++){
-		if(word[i]==88 || word[i]==120) countX++;			//jezeli x lub X inkrementuj licznik X'ow
-		else if(word[i]==79 || word[i]==111) countO++;		//jak wyzej z "O"
+		if(word[i]=='x' || word[i]=='X') countX++;			//jezeli x lub X inkrementuj licznik X'ow
+		else if(word[i]=='o' || word[i]=='O') countO++;		//jak wyzej z "O"
 	}
-	return countX==countO ? true : false;
+	return countX==countO;
 }
 
 void test_cases()
