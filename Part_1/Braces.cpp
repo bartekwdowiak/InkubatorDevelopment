@@ -1,26 +1,26 @@
 #include <assert.h>
 #include <iostream>
 #include <string>
-#include <vector>
+#include <stack>
 
 bool bracesOrder(const std::string &input)
 {
 	int len = input.length();
-	std::vector<char> bracesOpenings;
+	std::stack<char> bracesOpenings;
 
 
 	for (int i = 0; i < len; i++) {
 
 		if (input[i] == '[' || input[i] == '(' || input[i] == '{') 
 		{
-			bracesOpenings.push_back(input[i]);
+			bracesOpenings.push(input[i]);
 		}
 
-		else if (bracesOpenings.back() == '[' && input[i] == ']' 
-			||	 bracesOpenings.back() == '(' && input[i] == ')' 
-			||	 bracesOpenings.back() == '{' && input[i] == '}') 
+		else if (bracesOpenings.top() == '[' && input[i] == ']' 
+			||	 bracesOpenings.top() == '(' && input[i] == ')' 
+			||	 bracesOpenings.top() == '{' && input[i] == '}') 
 		{
-			bracesOpenings.pop_back();
+			bracesOpenings.pop();
 		}
 
 		else 
