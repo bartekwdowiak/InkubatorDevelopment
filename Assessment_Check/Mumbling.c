@@ -13,13 +13,20 @@ char* accumulate(const char *word, const int length)
     char *result = (char*)malloc(((length*length)+(3*length)-2)/2);
     int arrayPos = 0;
 
-    for (int i = 0; i < length; i++) {
-        for (int j = 0; j < (i + 1); j++) result[arrayPos++] = (j==0 ? toupper(word[i]) : tolower(word[i]));
-        result[arrayPos++]='-';
+    for (int i = 0; i < length; i++) 
+	
+	{
+        for (int j = 0; j < (i + 1); j++) 
+		{
+			result[arrayPos++] = (j==0 ? toupper(word[i]) : tolower(word[i]));
+		}
+
+		result[arrayPos++]='-';
+
 	}
+
     result[--arrayPos]='\0';
 	return result;
-
 }
 
 void test_cases()
