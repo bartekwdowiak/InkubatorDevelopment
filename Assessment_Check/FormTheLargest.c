@@ -27,6 +27,8 @@ int form_the_largest_number(int number)
 			}
 		}
 	}
+	
+	free(tab);
 	return result/10;									//wynik w tym miejscu jest pomnozony przez 10 o jeden raz za duzo
 }
 
