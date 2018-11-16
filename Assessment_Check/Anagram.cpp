@@ -12,7 +12,7 @@ bool check_if_anagram(const std::string &word_1, const std::string &word_2)
 	word1.erase(remove_if(word1.begin(), word1.end(), isspace), word1.end());	//usuniecie spacji ze stringow
 	word2.erase(remove_if(word2.begin(), word2.end(), isspace), word2.end());
 
-	transform(word_1.begin(), word_1.end(), word_1.begin(), ::tolower);
+	transform(word_1.begin(), word_1.end(), word_1.begin(), ::tolower);			//zamienienie wszystkich liter na male
 	transform(word_2.begin(), word_2.end(), word_2.begin(), ::tolower);
 
 	std::sort(word1.begin(), word1.end());										//sortowanie strigow
