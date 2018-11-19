@@ -7,7 +7,7 @@
 char* highestScoringWord(char *sentence)
 {
     int highestScore = -1, currentScore = 0;
-	char *result, *current;
+	char *result = NULL, *current = NULL;
 
 	current = strtok(sentence, " ,.-");
 
