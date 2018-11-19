@@ -7,6 +7,7 @@ bool bracesOrder(const std::string &input)
 {
 	int len = input.length();
 	std::stack<char> bracesOpenings;
+	bracesOpenings.push('\0');
 
 
 	for (int i = 0; i < len; i++) {
@@ -40,7 +41,7 @@ void test_cases()
 	answer = bracesOrder("([{}])[]");
 	assert(answer == true);
 
-	answer = bracesOrder("(]");
+	answer = bracesOrder("])");
 	assert(answer == false);
 
 	answer = bracesOrder("[(])");
