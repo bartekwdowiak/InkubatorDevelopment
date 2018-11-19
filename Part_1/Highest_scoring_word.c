@@ -6,7 +6,7 @@
 
 char* highestScoringWord(char *sentence)
 {
-    int highestScore = -1, currentScore = 0;
+    int highestScore = -1, currentScore = 0, asciiValue=96;
 	char *result = NULL, *current = NULL;
 
 	current = strtok(sentence, " ,.-");
@@ -15,7 +15,7 @@ char* highestScoringWord(char *sentence)
 	{
 		for	(int i = 0; i < strlen(current); i++)
 		{
-			currentScore+=current[i]-96;
+			currentScore+=current[i]-asciiValue;		//equation which allows to calculate the scoring of a letter using ascii code
 		}
 
 		if (currentScore>highestScore)
