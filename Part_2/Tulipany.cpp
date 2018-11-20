@@ -7,19 +7,33 @@
 
 int remainingSpecies(int patchCount, std::string givenSpecies)
 {
+	//input stream class to operate on strings
     std::istringstream speciesStream(givenSpecies);
+
+
+	//vector that contains tulip species
     std::vector<int> speciesVec;
     int singleSpecies, result, allSpecies=15000;
 
+
+	//loop using operator>>, pushes species into a vector
     while(speciesStream >> singleSpecies)
     {
         speciesVec.push_back(singleSpecies);
     }
 
+
+	//sorting vector containing species
     std::sort(speciesVec.begin(), speciesVec.end());
+
+
+	//extracting uniqe characters from vector, last is a pointer to last unique character
     auto last = std::unique(speciesVec.begin(),speciesVec.end());
 
+
+	//subtracting distance between begining of a vector to last unique character from all species
     result = allSpecies - std::distance(speciesVec.begin(), last);
+
 
     return result;
 }
