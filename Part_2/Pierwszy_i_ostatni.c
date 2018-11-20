@@ -6,13 +6,13 @@
 char* firstAndLast(char* firstVerse, char* pricesInput)
 {
     int arrayPos = -1, firstOccur = -1, lastOccur = -1, resultSize = 1, tempOccur;
-    char *priceTemp, *daysCount, *givenPrice;
+    char *priceTemp = NULL, *daysCount = NULL, *givenPrice = NULL;
     
 
     //extracting single characters from first input
     daysCount = strtok(firstVerse, " ,.-");
     givenPrice = strtok(NULL, " ,.-");
-    
+
 
     //array containg price for every day
     char *pricesArray[atoi(daysCount)];
