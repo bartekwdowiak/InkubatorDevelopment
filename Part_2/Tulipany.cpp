@@ -7,6 +7,14 @@
 
 int remainingSpecies(int patchCount, std::string givenSpecies)
 {
+	//checking if input is valid
+	if (givenSpecies.length() != patchCount)
+	{
+		std::cout<<"WRONG INPUT DATA"<<std::endl;
+		exit 0;
+	}
+
+
 	//input stream class to operate on strings
     std::istringstream speciesStream(givenSpecies);
 

@@ -5,6 +5,13 @@
 
 char* firstAndLast(char* firstVerse, char* pricesInput)
 {
+    //checking if first value in input is valid
+    if (strlen(firstVerse) < 3)
+    {
+        printf("WRONG INPUT (FIRST VALUE)");
+        exit 0;
+    }
+
     int arrayPos = -1, firstOccur = -1, lastOccur = -1, resultSize = 1, tempOccur;
     char *priceTemp, *daysCount, *givenPrice;
     
@@ -12,7 +19,15 @@ char* firstAndLast(char* firstVerse, char* pricesInput)
     //extracting single characters from first input
     daysCount = strtok(firstVerse, " ,.-");
     givenPrice = strtok(NULL, " ,.-");
- 
+    
+
+    //checking if second value in input is valid
+    if(strlen(pricesInput) != atoi(daysCount))
+    {
+        printf("WRONG INPUT (SECOND VALUE)");
+        exit 0;
+    }
+
 
     //array containg price for every day
     char *pricesArray[atoi(daysCount)];
