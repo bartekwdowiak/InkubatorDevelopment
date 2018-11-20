@@ -7,14 +7,6 @@
 
 int remainingSpecies(int patchCount, std::string givenSpecies)
 {
-	//checking if input is valid
-	if (givenSpecies.length() != patchCount)
-	{
-		std::cout<<"WRONG INPUT DATA"<<std::endl;
-		exit 0;
-	}
-
-
 	//input stream class to operate on strings
     std::istringstream speciesStream(givenSpecies);
 
@@ -30,6 +22,13 @@ int remainingSpecies(int patchCount, std::string givenSpecies)
         speciesVec.push_back(singleSpecies);
     }
 
+
+	//checking if input is valid
+	if (speciesVec.size() != patchCount)
+	{
+		std::cout<<"WRONG INPUT DATA"<<std::endl;
+		return 0;
+	}
 
 	//sorting vector containing species
     std::sort(speciesVec.begin(), speciesVec.end());
@@ -48,7 +47,7 @@ int remainingSpecies(int patchCount, std::string givenSpecies)
 
 void test_cases()
 {
-	int answer = remainingSpecies(8,"3 6 2 2 4 6 3 7");
+	int answer = remainingSpecies(8, "3 6 2 2 4 6 3 7");
 	assert(answer == 14995);
 
 	answer = remainingSpecies(12, "1 2 3 4 5 6 7 8 9 10 11 12");
@@ -60,7 +59,7 @@ void test_cases()
 	answer = remainingSpecies(2, "1 2");
 	assert(answer == 14998);
 
-	answer = remainingSpecies(7,"1 2 4 5 5 5 4");
+	answer = remainingSpecies(7, "1 2 4 5 5 5 4");
 	assert(answer == 14996);
 }
 
