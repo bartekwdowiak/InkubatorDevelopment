@@ -152,9 +152,9 @@ char* bigNumbersComparison(char* input)
 
 void test_cases()
 {
-    char input[] = "123 > 321";
+    char input[] = "100 > 11";
     char *answer = bigNumbersComparison(input);
-    assert(strcmp(answer,"NIE") == 0);
+    assert(strcmp(answer,"TAK") == 0);
 
     char input2[] = "100000000000000000000000000000000000000 < 100000000000000000000000000000000000001";
     answer = bigNumbersComparison(input2);
