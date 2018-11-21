@@ -7,41 +7,46 @@
 
 std::string drawHistogram(std::string input)
 {
-    std::string result = "", spaces = "", currentLine = "";
+    std::string result = "", spaces = "", currentLine = "", dice = "123456";
     int occurArray[6], maxOccur = 0;
 
 
-    occurArray[0]=std::count(input.begin(), input.end(), '1');
-    occurArray[1]=std::count(input.begin(), input.end(), '2');
-    occurArray[2]=std::count(input.begin(), input.end(), '3');
-    occurArray[3]=std::count(input.begin(), input.end(), '4');
-    occurArray[4]=std::count(input.begin(), input.end(), '5');
-    occurArray[5]=std::count(input.begin(), input.end(), '6');
-
+    //loop to fill occurances array and check what is the max occurance value
     for (int i = 0; i < 6; i++)
     {
+        occurArray[i] = std::count(input.begin(), input.end(), dice[i]);
+
         if (maxOccur < occurArray[i] + 1)
         {
             maxOccur = occurArray[i] + 1;
         }
     }
 
+
+    //loops that format the string to be printable as a histogram
     for (int lineNumber = maxOccur; lineNumber > 0; lineNumber--)
     {
         for (int diceSide = 0; diceSide < 6; diceSide++)
         {
+            //checks if it is the first character in collumn
             if (occurArray[diceSide] + 1 == lineNumber)
             {
+                //checking if number consists of 2 digits
                 if (occurArray[diceSide]/10 == 0)
                 {   
+                    //if it doesn't it adds a space
                     spaces += ' ';
                 }
+
                 currentLine += spaces;
+
+                //if there are no occurances don't print '0'
                 if (occurArray[diceSide] == 0)
                 {
                     currentLine += ' ';
                 }
 
+                //if any other value greater than 0, adds it to current line
                 else
                 {
                     currentLine += std::to_string(occurArray[diceSide]);
@@ -50,6 +55,7 @@ std::string drawHistogram(std::string input)
                 spaces = "";
             }
 
+            //if it isn't the first character in collumn it adds '#'
             else if (occurArray[diceSide] >= lineNumber)
             {
                 spaces += ' ';
@@ -58,19 +64,21 @@ std::string drawHistogram(std::string input)
                 spaces = "";
             }
 
+            //if a number occurs less than "lineNumber" times i adds spaces to variable keeping track of how many of them must be added
             else
             {
                 spaces += "  ";
             }
         }
 
+        //adding current line to result and zeroing variables
         result += currentLine;
         result += '\n';
         currentLine = "";
         spaces = "";
     }
 
-
+    //adding bottom part of histogram and printing it
     result += " - - - - - -\n 1 2 3 4 5 6\n";
     std::cout<<result<<std::endl;
 
