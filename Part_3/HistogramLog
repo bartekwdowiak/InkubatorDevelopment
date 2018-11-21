@@ -1,0 +1,15 @@
+==2460== Memcheck, a memory error detector
+==2460== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==2460== Using Valgrind-3.14.0 and LibVEX; rerun with -h for copyright info
+==2460== Command: ../../Part_3_binaries/Histogram
+==2460== Parent PID: 2174
+==2460== 
+==2460== 
+==2460== HEAP SUMMARY:
+==2460==     in use at exit: 0 bytes in 0 blocks
+==2460==   total heap usage: 17 allocs, 17 frees, 75,326 bytes allocated
+==2460== 
+==2460== All heap blocks were freed -- no leaks are possible
+==2460== 
+==2460== For counts of detected and suppressed errors, rerun with: -v
+==2460== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
