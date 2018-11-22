@@ -5,7 +5,7 @@
 #include <vector>
 #include <algorithm>
 
-int remainingSpecies(int patchCount, std::string givenSpecies)
+int remainingSpecies(int patchCount, const std::string &givenSpecies)
 {
 	//input stream class to operate on strings
     std::istringstream speciesStream(givenSpecies);
