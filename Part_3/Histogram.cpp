@@ -5,7 +5,7 @@
 #include <vector>
 #include <algorithm>
 
-std::string drawHistogram(std::string input)
+std::string drawHistogram(const std::string &input)
 {
     std::string result = "", spaces = "", currentLine = "", dice = "123456";
     int occurArray[6], maxOccur = 0;
