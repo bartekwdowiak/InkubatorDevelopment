@@ -4,11 +4,12 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+//function that checks if given array is descending
 bool isDescending (int *input, int size)
 {
     for (int i = 0; i < size - 1; i++)
     {
-        if (input[i] <= input[i+1])
+        if (input[i] < input[i+1])
         {
             return false;
         }
@@ -17,11 +18,12 @@ bool isDescending (int *input, int size)
     return true;
 }
 
+//function that checks if given array is ascending
 bool isAscending (int *input, int size)
 {
     for (int i = 0; i < size - 1; i++)
     {
-        if (input[i] >= input[i+1])
+        if (input[i] > input[i+1])
         {
             return false;
         }
@@ -56,7 +58,7 @@ void test_cases()
     char *answer = isArraySorted(input, 7);
     assert(strcmp(answer,"no") == 0);
 
-    int input2[] = {1, 23, 42, 4342};
+    int input2[] = {1, 23, 23, 4342};
     answer = isArraySorted(input2, 4);
     assert(strcmp(answer,"yes, ascending") == 0);
 
@@ -72,7 +74,7 @@ void test_cases()
     answer = isArraySorted(input5, 4);
     assert(strcmp(answer,"yes, ascending") == 0);
 
-    int input6[] = {10, 9, 9, 8, 7};
+    int input6[] = {10, 9, 7, 8, 7};
     answer = isArraySorted(input6, 5);
     assert(strcmp(answer,"no") == 0);
 
