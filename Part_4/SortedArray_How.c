@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 //function that checks if given array is descending
-bool isDescending (int *input, int size)
+bool isDescending (const int *input, int size)
 {
     for (int i = 0; i < size - 1; i++)
     {
@@ -19,7 +19,7 @@ bool isDescending (int *input, int size)
 }
 
 //function that checks if given array is ascending
-bool isAscending (int *input, int size)
+bool isAscending (const int *input, int size)
 {
     for (int i = 0; i < size - 1; i++)
     {
@@ -32,7 +32,7 @@ bool isAscending (int *input, int size)
     return true;
 }
 
-char* isArraySorted(int* inputArray, int arraySize)
+char* isArraySorted(const int* inputArray, int arraySize)
 {
 
     if (isDescending(inputArray, arraySize))
