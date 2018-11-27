@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 //function that checks if two given numbers are equal
-bool isEqual(char* first, char* second)
+bool isEqual(const char* first, const char* second)
 {
     //comparing two strings
     if (strcmp(first, second) == 0)
@@ -20,7 +20,7 @@ bool isEqual(char* first, char* second)
 }
 
 //function that checks if the first given number is greater than second
-bool isGreater(char* first, char* second)
+bool isGreater(const char* first, const char* second)
 {
     //if one of the strings is longer it means it is greater
     if (strlen(first) > strlen(second))
@@ -54,7 +54,7 @@ bool isGreater(char* first, char* second)
 
 char* bigNumbersComparison(char* input)
 {
-    char *firstValue = NULL, *secondValue = NULL, *comparisonSymbol = NULL;
+    char *firstValue = NULL, *secondValue = NULL, *comparisonSymbol = NULL, *tak = "TAK", *nie = "NIE";
 
 
     //extracting both values and symbol knowing they're separated with spaces
@@ -68,12 +68,12 @@ char* bigNumbersComparison(char* input)
     {
         if (isEqual(firstValue, secondValue))
         {
-            return "TAK";
+            return tak;
         }
        
         else
         {
-            return "NIE";
+            return nie;
         }
     }
 
@@ -81,12 +81,12 @@ char* bigNumbersComparison(char* input)
     {
         if (isEqual(firstValue, secondValue))
         {
-            return "NIE";
+            return nie;
         }
        
         else
         {
-            return "TAK";
+            return tak;
         }        
     }
 
@@ -94,12 +94,12 @@ char* bigNumbersComparison(char* input)
     {
         if (isGreater(firstValue, secondValue))
         {
-            return "NIE";
+            return nie;
         }
        
         else
         {
-            return "TAK";
+            return tak;
         }       
     }
 
@@ -107,12 +107,12 @@ char* bigNumbersComparison(char* input)
     {
         if (isGreater(firstValue, secondValue))
         {
-            return "TAK";
+            return tak;
         }
        
         else
         {
-            return "NIE";
+            return nie;
         }       
     }
 
@@ -120,12 +120,12 @@ char* bigNumbersComparison(char* input)
     {
         if (isGreater(firstValue, secondValue))
         {
-            return "NIE";
+            return nie;
         }
        
         else
         {
-            return "TAK";
+            return tak;
         }
     }    
 
@@ -133,12 +133,12 @@ char* bigNumbersComparison(char* input)
     {
         if (isGreater(firstValue, secondValue) || isEqual(firstValue, secondValue))
         {
-            return "TAK";
+            return tak;
         }
        
         else
         {
-            return "NIE";
+            return nie;
         }       
     }
 
