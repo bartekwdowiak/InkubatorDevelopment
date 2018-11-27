@@ -8,7 +8,8 @@
 std::string drawHistogram(const std::string &input)
 {
     std::string result = "", spaces = "", currentLine = "", dice = "123456";
-    int occurArray[6], maxOccur = 0;
+    int diceSides = 6, maxOccur = 0;
+    int occurArray[diceSides];
 
 
     //loop to fill occurances array and check what is the max occurance value
